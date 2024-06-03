@@ -16,7 +16,6 @@ class OldPhotoColorizationNode:
         self.colorizer = pipeline(Tasks.image_colorization, model='damo/cv_unet_image-colorization')
         # Define input directory and create it if it doesn't exist
         self.input_dir = folder_paths.get_input_directory()
-        print('>>>', self.input_dir)
         os.makedirs(self.input_dir, exist_ok=True)
 
     @classmethod
@@ -55,11 +54,13 @@ class OldPhotoColorizationNode:
             # Colorize the image
             result = self.colorizer(image_path)
 
+            # Delete the temporary image
+            os.remove(image_path)
+
             # Extract the output image from the result
             if 'output_img' in result:
                 output_img = result['output_img']
-
-                # 需要补充的部分
+                # pic
                 output_img = Image.fromarray((output_img * 255).astype(np.uint8))
                 output_img = output_img.convert('RGB')
                 output_img = np.array(output_img).astype(np.float32) / 255.0
