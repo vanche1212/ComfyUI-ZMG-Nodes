@@ -6,6 +6,8 @@ from PIL import Image
 import torch
 import os
 import time
+import folder_paths
+
 
 class OldPhotoColorizationNode:
 
@@ -13,7 +15,8 @@ class OldPhotoColorizationNode:
         # Initialize the colorizer pipeline
         self.colorizer = pipeline(Tasks.image_colorization, model='damo/cv_unet_image-colorization')
         # Define input directory and create it if it doesn't exist
-        self.input_dir = "input/OldPhotoColorizationNode"
+        self.input_dir = folder_paths.get_input_directory()
+        print('>>>', self.input_dir)
         os.makedirs(self.input_dir, exist_ok=True)
 
     @classmethod
@@ -27,11 +30,6 @@ class OldPhotoColorizationNode:
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "colorize_image"
     CATEGORY = "😋fq393"
-
-    def convert_color(self, image):
-        if len(image.shape) > 2 and image.shape[2] >= 4:
-            return cv2.cvtColor(image, cv2.COLOR_BGRA2RGB)
-        return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     def colorize_image(self, image):
         try:
@@ -61,37 +59,17 @@ class OldPhotoColorizationNode:
             if 'output_img' in result:
                 output_img = result['output_img']
 
-                # Define output directory based on input image path
-                output_dir = os.path.join(os.path.dirname(image_path), "output")
-                os.makedirs(output_dir, exist_ok=True)
-
-                # Save the output image
-                output_image_path = os.path.join(output_dir, f"output_image_{timestamp}.png")
-                cv2.imwrite(output_image_path, output_img)
-
-                # Read the saved image
-                output_img = cv2.imread(output_image_path)
-
-                # Convert BGR to RGB
-                output_img = self.convert_color(output_img)
-
-                # Normalize to [0, 1] range
-                output_img = output_img.astype(np.float32) / 255.0
-
-                # Convert HWC to CHW
-                output_img = np.transpose(output_img, (2, 0, 1))
-
-                # Ensure the output is in the correct shape and type
-                if len(output_img.shape) == 3:
-                    output_img = output_img[np.newaxis, ...]
-
-                output_img = torch.from_numpy(output_img)
-
+                # 需要补充的部分
+                output_img = Image.fromarray((output_img * 255).astype(np.uint8))
+                output_img = output_img.convert('RGB')
+                output_img = np.array(output_img).astype(np.float32) / 255.0
+                output_img = torch.from_numpy(output_img)[None,]
                 return (output_img,)
             else:
                 return ("Error: 'output_img' not found in the result.",)
         except Exception as e:
             return (f"Error: {str(e)}",)
+
 
 NODE_CLASS_MAPPINGS = {
     "OldPhotoColorizationNode": OldPhotoColorizationNode
@@ -100,4 +78,3 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "OldPhotoColorizationNode": "😋Old Photo Colorization Node"
 }
-
