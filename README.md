@@ -1,6 +1,9 @@
-## zmg plugin
+## ZMG PLUGIN
 
-### functions
+### Introduction
+wrote some relatively useful node plug-ins
+
+### NODES
  - upload video
  - json parser
  - api request
