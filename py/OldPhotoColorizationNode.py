@@ -69,8 +69,10 @@ class OldPhotoColorizationNode:
                     output_img = torch.from_numpy(output_img)[None,]
                     output_images.append(output_img)
                 else:
-                    output_images.append(f"Error: 'output_img' not found in the result.")
-            return output_images
+                    output_images.append(torch.zeros_like(image))  # Append a tensor of zeros if error
+            # Stack all output images into a single tensor
+            output_images_tensor = torch.stack(output_images)
+            return (output_images_tensor,)
         except Exception as e:
             return (f"Error: {str(e)}",)
 
