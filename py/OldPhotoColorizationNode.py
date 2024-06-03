@@ -16,6 +16,7 @@ class OldPhotoColorizationNode:
         self.colorizer = pipeline(Tasks.image_colorization, model='damo/cv_unet_image-colorization')
         # Define input directory and create it if it doesn't exist
         self.input_dir = folder_paths.get_input_directory()
+        print('>>>', self.input_dir)
         os.makedirs(self.input_dir, exist_ok=True)
 
     @classmethod
