@@ -23,32 +23,32 @@ class OldPhotoColorizationNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "images": ("IMAGES",),  # Changed to plural to handle multiple images
+                "images": ("IMAGE",),  # Changed to plural to handle multiple images
             },
         }
 
-    RETURN_TYPES = ("IMAGES",)
+    RETURN_TYPES = ("IMAGE",)
     FUNCTION = "colorize_images"
     CATEGORY = "😋fq393"
 
-    def colorize_images(self, images):
-        print('>>>>ss', images)
+    def colorize_images(self, image):
+        print('>>>>ss', image)
         try:
             output_images = []
-            for image in images:
+            for ig in image:
                 # Convert the input tensor to a numpy array if needed
-                if isinstance(image, torch.Tensor):
-                    image = image.squeeze().cpu().numpy()
+                if isinstance(ig, torch.Tensor):
+                    ig = ig.squeeze().cpu().numpy()
 
                 # Convert to [0, 255] range and to uint8
-                image = (image * 255).astype(np.uint8)
+                ig = (ig * 255).astype(np.uint8)
 
                 # Convert CHW to HWC if necessary
-                if image.shape[0] == 3:
-                    image = np.transpose(image, (1, 2, 0))
+                if ig.shape[0] == 3:
+                    ig = np.transpose(ig, (1, 2, 0))
 
                 # Convert numpy array to PIL Image
-                pil_image = Image.fromarray(image)
+                pil_image = Image.fromarray(ig)
 
                 # Generate a unique filename with timestamp
                 timestamp = int(time.time())
