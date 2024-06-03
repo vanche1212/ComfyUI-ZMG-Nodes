@@ -6,7 +6,8 @@ import cv2
 
 import folder_paths
 from comfy.utils import common_upscale
-from utils import calculate_file_hash, get_sorted_dir_files_from_directory, get_audio, lazy_eval, hash_path, validate_path
+from .logger import logger
+from .utils import calculate_file_hash, get_sorted_dir_files_from_directory, get_audio, lazy_eval, hash_path, validate_path
 
 video_extensions = ['webm', 'mp4', 'mkv', 'gif']
 
