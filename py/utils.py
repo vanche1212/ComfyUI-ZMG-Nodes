@@ -1,4 +1,3 @@
-import hashlib
 import os
 from typing import Iterable
 import shutil
@@ -75,21 +74,6 @@ def get_sorted_dir_files_from_directory(directory: str, skip_first_images: int=0
     return dir_files
 
 
-# modified from https://stackoverflow.com/questions/22058048/hashing-a-file-in-python
-def calculate_file_hash(filename: str, hash_every_n: int = 1):
-    h = hashlib.sha256()
-    b = bytearray(10*1024*1024) # read 10 megabytes at a time
-    mv = memoryview(b)
-    with open(filename, 'rb', buffering=0) as f:
-        i = 0
-        # don't hash entire file, only portions of it if requested
-        while n := f.readinto(mv):
-            if i%hash_every_n == 0:
-                h.update(mv[:n])
-            i += 1
-    return h.hexdigest()
-
-
 def get_audio(file, start_time=0, duration=0):
     args = [ffmpeg_path, "-v", "error", "-i", file]
     if start_time > 0:
@@ -115,14 +99,6 @@ def lazy_eval(func):
 
 def is_url(url):
     return url.split("://")[0] in ["http", "https"]
-
-
-def hash_path(path):
-    if path is None:
-        return "input"
-    if is_url(path):
-        return "url"
-    return calculate_file_hash(path.strip("\""))
 
 
 def validate_path(path, allow_none=False, allow_url=True):
