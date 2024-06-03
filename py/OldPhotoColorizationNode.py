@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
-from PIL import Image
+from PIL import Image, ImageOps
 import torch
 import os
 import time
@@ -16,7 +16,6 @@ class OldPhotoColorizationNode:
         self.colorizer = pipeline(Tasks.image_colorization, model='damo/cv_unet_image-colorization')
         # Define input directory and create it if it doesn't exist
         self.input_dir = folder_paths.get_input_directory()
-        print('>>>', self.input_dir)
         os.makedirs(self.input_dir, exist_ok=True)
 
     @classmethod
@@ -62,13 +61,18 @@ class OldPhotoColorizationNode:
                 if 'output_img' in result:
                     output_image_path = os.path.join(self.input_dir, f"output_image_{timestamp}.jpg")
                     cv2.imwrite(output_image_path, result['output_img'])
-                    output_images.append(torch.tensor(cv2.imread(output_image_path)).permute(2, 0, 1) / 255.0)
-                else:
-                    output_images.append(torch.zeros_like(ig))  # Append a tensor of zeros if error
 
-            # Stack all output images into a single tensor
-            output_images_tensor = torch.stack(output_images)
-            return (output_images_tensor,)
+                    # Convert the colorized image to the expected format
+                    frame = cv2.imread(output_image_path)
+                    image = Image.fromarray(frame)
+                    image = ImageOps.exif_transpose(image)
+                    image = np.array(image, dtype=np.float32) / 255.0
+                    image = torch.from_numpy(image)[None,]
+                    output_images.append(image)
+                else:
+                    output_images.append(torch.zeros_like(image))  # Append a tensor of zeros if error
+
+            return (output_images,)  # Return the list of images directly
         except Exception as e:
             return (f"Error: {str(e)}",)
 
