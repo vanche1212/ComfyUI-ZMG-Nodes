@@ -72,7 +72,7 @@ class OldPhotoColorizationNode:
                 else:
                     output_images.append(torch.zeros_like(image))  # Append a tensor of zeros if error
 
-            return (torch.cat(output_images),)  # Return the tensor directly
+            return (torch.cat(output_images, dim=0),)  # Return the tensor directly
         except Exception as e:
             return (f"Error: {str(e)}",)
 
