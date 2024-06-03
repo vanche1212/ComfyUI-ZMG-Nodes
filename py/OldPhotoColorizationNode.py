@@ -70,6 +70,10 @@ class OldPhotoColorizationNode:
                     image = np.array(image, dtype=np.float32) / 255.0
                     image = torch.from_numpy(image)[None,]
                     output_images.append(image)
+
+                    # Delete the temporary images
+                    os.remove(image_path)
+                    os.remove(output_image_path)
                 else:
                     output_images.append(torch.zeros_like(image))  # Append a tensor of zeros if error
 
