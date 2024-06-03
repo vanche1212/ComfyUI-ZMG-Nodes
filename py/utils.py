@@ -4,7 +4,7 @@ from typing import Iterable
 import shutil
 import subprocess
 
-from .logger import logger
+from py.logger import logger
 
 
 def ffmpeg_suitability(path):
