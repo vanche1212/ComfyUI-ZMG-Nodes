@@ -23,11 +23,11 @@ class OldPhotoColorizationNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "images": ("IMAGE",),  # Changed to plural to handle multiple images
+                "images": ("IMAGES",),  # Changed to plural to handle multiple images
             },
         }
 
-    RETURN_TYPES = ("IMAGE",)
+    RETURN_TYPES = ("IMAGES",)
     FUNCTION = "colorize_images"
     CATEGORY = "😋fq393"
 
