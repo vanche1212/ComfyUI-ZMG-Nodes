@@ -112,16 +112,18 @@ class LoadVideoUpload:
                 file_parts = f.split('.')
                 if len(file_parts) > 1 and (file_parts[-1] in video_extensions):
                     files.append(f)
-        return {"required": {
-                    "video": (sorted(files),),
-                     "force_rate": ("INT", {"default": 0, "min": 0, "max": 24, "step": 1}),
-                     "force_size": (["Disabled", "Custom Height", "Custom Width", "Custom", "256x?", "?x256", "256x256", "512x?", "?x512", "512x512"],),
-                     "custom_width": ("INT", {"default": 512, "min": 0, "step": 8}),
-                     "custom_height": ("INT", {"default": 512, "min": 0, "step": 8}),
-                     "frame_load_cap": ("INT", {"default": 0, "min": 0, "step": 1}),
-                     "skip_first_frames": ("INT", {"default": 0, "min": 0, "step": 1}),
-                     "select_every_nth": ("INT", {"default": 1, "min": 1, "step": 1}),
-                     },}
+        return {
+            "required": {
+                "video": (sorted(files),),
+                "force_rate": ("INT", {"default": 0, "min": 0, "max": 24, "step": 1}),
+                "force_size": (["Disabled", "Custom Height", "Custom Width", "Custom", "256x?", "?x256", "256x256", "512x?", "?x512", "512x512"],),
+                "custom_width": ("INT", {"default": 512, "min": 0, "step": 8}),
+                "custom_height": ("INT", {"default": 512, "min": 0, "step": 8}),
+                "frame_load_cap": ("INT", {"default": 0, "min": 0, "step": 1}),
+                "skip_first_frames": ("INT", {"default": 0, "min": 0, "step": 1}),
+                "select_every_nth": ("INT", {"default": 1, "min": 1, "step": 1}),
+            },
+        }
 
     CATEGORY = "😋fq393"
 
@@ -149,11 +151,11 @@ class LoadVideoPath:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "video": ("STRING", {"default": "X://insert/path/here.mp4", "vhs_path_extensions": video_extensions}),
+                "video": ("STRING", {"default": "", "vhs_path_extensions": video_extensions}),
                 "force_rate": ("INT", {"default": 0, "min": 0, "max": 24, "step": 1}),
-                 "force_size": (["Disabled", "Custom Height", "Custom Width", "Custom", "256x?", "?x256", "256x256", "512x?", "?x512", "512x512"],),
-                 "custom_width": ("INT", {"default": 512, "min": 0, "step": 8}),
-                 "custom_height": ("INT", {"default": 512, "min": 0, "step": 8}),
+                "force_size": (["Disabled", "Custom Height", "Custom Width", "Custom", "256x?", "?x256", "256x256", "512x?", "?x512", "512x512"],),
+                "custom_width": ("INT", {"default": 0, "min": 0, "step": 8}),
+                "custom_height": ("INT", {"default": 0, "min": 0, "step": 8}),
                 "frame_load_cap": ("INT", {"default": 0, "min": 0, "step": 1}),
                 "skip_first_frames": ("INT", {"default": 0, "min": 0, "step": 1}),
                 "select_every_nth": ("INT", {"default": 1, "min": 1, "step": 1}),
