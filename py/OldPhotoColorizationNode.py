@@ -53,6 +53,7 @@ class OldPhotoColorizationNode:
                 # Generate a unique filename with timestamp
                 timestamp = int(time.time())
                 image_path = os.path.join(self.input_dir, f"input_image_{timestamp}.jpg")
+                print('>><<<', image_path)
                 pil_image.save(image_path)
 
                 # Colorize the image
