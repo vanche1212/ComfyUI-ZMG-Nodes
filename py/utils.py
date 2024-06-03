@@ -4,7 +4,7 @@ from typing import Iterable
 import shutil
 import subprocess
 
-from logger import logger
+from .logger import logger
 
 
 def ffmpeg_suitability(path):
@@ -75,6 +75,7 @@ def get_sorted_dir_files_from_directory(directory: str, skip_first_images: int=0
     return dir_files
 
 
+# modified from https://stackoverflow.com/questions/22058048/hashing-a-file-in-python
 def calculate_file_hash(filename: str, hash_every_n: int = 1):
     h = hashlib.sha256()
     b = bytearray(10*1024*1024) # read 10 megabytes at a time
