@@ -1,4 +1,6 @@
 import importlib
+from .py import server
+import folder_paths
 
 node_list = [
     "ApiRequestNode",
@@ -6,7 +8,7 @@ node_list = [
     "JsonParserNode",
     "OllamaRequestNode",
     "OldPhotoColorizationNode",
-    "load_video_nodes"
+    "nodes"
 ]
 
 NODE_CLASS_MAPPINGS = {}

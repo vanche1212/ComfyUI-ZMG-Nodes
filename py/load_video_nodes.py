@@ -194,15 +194,4 @@ class LoadVideoPath:
     def VALIDATE_INPUTS(s, video, **kwargs):
         return validate_path(video, allow_none=True)
 
-# A dictionary that contains all nodes you want to export with their names
-NODE_CLASS_MAPPINGS = {
-    "LoadVideoUpload2": LoadVideoUpload,
-    "LoadVideoPath2": LoadVideoPath
-}
-
-# A dictionary that contains the friendly/humanly readable titles for the nodes
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "LoadVideoUpload2": "😋Load Video (Upload)2",
-    "LoadVideoPath2": "😋Load Video (Path)2"
-}
 
