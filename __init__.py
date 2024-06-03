@@ -6,7 +6,7 @@ node_list = [
     "JsonParserNode",
     "OllamaRequestNode",
     "OldPhotoColorizationNode",
-    "nodes"
+    "TestME"
 ]
 
 NODE_CLASS_MAPPINGS = {}
