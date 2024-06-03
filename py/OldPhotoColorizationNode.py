@@ -32,8 +32,8 @@ class OldPhotoColorizationNode:
     CATEGORY = "😋fq393"
 
     def colorize_images(self, images):
+        print('>>>>ss', images)
         try:
-            print('>>>2', images)
             output_images = []
             for image in images:
                 # Convert the input tensor to a numpy array if needed
@@ -68,7 +68,7 @@ class OldPhotoColorizationNode:
                     output_img = Image.fromarray((output_img * 255).astype(np.uint8))
                     output_img = output_img.convert('RGB')
                     output_img = np.array(output_img).astype(np.float32) / 255.0
-                    output_img = torch.from_numpy(output_img)[None,]
+                    output_img = torch.from_numpy(output_img).permute(2, 0, 1)  # Change HWC to CHW
                     output_images.append(output_img)
                 else:
                     output_images.append(torch.zeros_like(image))  # Append a tensor of zeros if error
