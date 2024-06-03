@@ -1,8 +1,7 @@
-import os
+import requests
 
 
 class FileUploader:
-
     def __init__(self):
         pass
 
@@ -14,28 +13,29 @@ class FileUploader:
                     "default": "",
                     "multiline": False,
                     "display": "string"
-                }),
-                "destination_folder": ("STRING", {
-                    "default": "uploads/",
-                    "multiline": False,
-                    "display": "string"
+                })
+            },
+            "optional": {
+                "upload_button": ("BUTTON", {
+                    "label": "Upload File",
+                    "command": "upload_file"
                 })
             }
         }
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "upload_file"
-    CATEGORY = "😋fq393"
+    CATEGORY = "Utilities"
 
-    def upload_file(self, file_path, destination_folder):
-        if not os.path.exists(destination_folder):
-            os.makedirs(destination_folder)
-        destination_path = os.path.join(destination_folder, os.path.basename(file_path))
+    def upload_file(self, file_path):
+        url = "http://10.27.89.24:8288/upload/image"
         try:
-            with open(file_path, 'rb') as fsrc:
-                with open(destination_path, 'wb') as fdst:
-                    fdst.write(fsrc.read())
-            return (f"File uploaded to {destination_path}",)
+            with open(file_path, 'rb') as f:
+                response = requests.post(url, files={'file': f})
+            if response.status_code == 200:
+                return (f"File uploaded successfully to {url}",)
+            else:
+                return (f"Failed to upload file: {response.content.decode()}",)
         except Exception as e:
             return (f"Failed to upload file: {str(e)}",)
 
