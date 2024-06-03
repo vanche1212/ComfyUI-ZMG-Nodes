@@ -1,8 +1,8 @@
 import importlib
 
 node_list = [
-    "api_request_node",
-    "load_video_nodes",
+    "ApiRequestNode",
+    "LoadVideoNode",
     "JsonParserNode",
     "OllamaRequestNode",
     "OldPhotoColorizationNode"
