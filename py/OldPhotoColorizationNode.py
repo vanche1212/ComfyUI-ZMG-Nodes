@@ -61,12 +61,13 @@ class OldPhotoColorizationNode:
 
                 # Delete the temporary image
                 # os.remove(image_path)
-
+                output_image_path = os.path.join(self.input_dir, f"output_image_{timestamp}.jpg")
                 # Extract the output image from the result
                 if 'output_img' in result:
                     output_img = result['output_img']
                     # Convert to the proper format
                     output_img = Image.fromarray((output_img * 255).astype(np.uint8))
+                    output_img.save(output_image_path)
                     output_img = output_img.convert('RGB')
                     output_img = np.array(output_img).astype(np.float32) / 255.0
                     output_img = torch.from_numpy(output_img).permute(2, 0, 1)  # Change HWC to CHW
