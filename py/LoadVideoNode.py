@@ -182,7 +182,7 @@ class LoadVideoPath:
 
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
-    "LoadVideoUpload": LoadVideoUpload,
+    # "LoadVideoUpload": LoadVideoUpload,
     "LoadVideoPath": LoadVideoPath
 }
 
