@@ -188,7 +188,7 @@ NODE_CLASS_MAPPINGS = {
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "LoadVideoUpload": "😋Load Video (Upload)",
+    # "LoadVideoUpload": "😋Load Video (Upload)",
     "LoadVideoPath": "😋Load Video (Path)"
 }
 
