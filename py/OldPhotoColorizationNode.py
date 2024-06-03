@@ -33,6 +33,7 @@ class OldPhotoColorizationNode:
 
     def colorize_images(self, images):
         try:
+            print('>>>2', images)
             output_images = []
             for image in images:
                 # Convert the input tensor to a numpy array if needed
