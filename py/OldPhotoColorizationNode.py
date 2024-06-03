@@ -64,6 +64,7 @@ class OldPhotoColorizationNode:
 
                     # Convert the colorized image to the expected format
                     frame = cv2.imread(output_image_path)
+                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                     image = Image.fromarray(frame)
                     image = ImageOps.exif_transpose(image)
                     image = np.array(image, dtype=np.float32) / 255.0
