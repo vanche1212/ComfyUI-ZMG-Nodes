@@ -57,7 +57,7 @@ class OldPhotoColorizationNode:
                 result = self.colorizer(image_path)
 
                 # Delete the temporary image
-                os.remove(image_path)
+                # os.remove(image_path)
 
                 # Extract the output image from the result
                 if 'output_img' in result:
