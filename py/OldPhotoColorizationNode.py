@@ -28,7 +28,7 @@ class OldPhotoColorizationNode:
 
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "colorize_images"
-    CATEGORY = "😋fq393"
+    CATEGORY = "😋ZMG/fq393"
 
     def colorize_images(self, image):
         try:

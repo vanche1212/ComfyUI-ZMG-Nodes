@@ -23,7 +23,7 @@ class JsonParserNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "parse_input"
-    CATEGORY = "😋fq393"
+    CATEGORY = "😋ZMG/fq393"
 
     def parse_input(self, input_type, input_string, json_path):
         if input_type == "json":

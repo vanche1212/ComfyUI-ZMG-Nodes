@@ -21,7 +21,7 @@ class APIRequestNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "make_request"
-    CATEGORY = "😋fq393"
+    CATEGORY = "😋ZMG/fq393"
 
     def make_request(self, api_url, request_method, data_format, request_params, headers, random_seed):
         import requests

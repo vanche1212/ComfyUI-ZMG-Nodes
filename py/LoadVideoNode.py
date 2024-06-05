@@ -124,7 +124,7 @@ class LoadVideoUpload:
             },
         }
 
-    CATEGORY = "😋fq393"
+    CATEGORY = "😋ZMG/fq393"
 
     RETURN_TYPES = ("IMAGE", "INT", "VHS_AUDIO", "FLOAT")
     RETURN_NAMES = ("IMAGE", "frame_count", "audio", "fps")
@@ -161,7 +161,7 @@ class LoadVideoPath:
             },
         }
 
-    CATEGORY = "😋fq393"
+    CATEGORY = "😋ZMG/fq393"
 
     RETURN_TYPES = ("IMAGE", "INT", "VHS_AUDIO", "FLOAT")
     RETURN_NAMES = ("IMAGE", "frame_count", "audio", "fps")

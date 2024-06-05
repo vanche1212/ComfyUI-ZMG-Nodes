@@ -27,7 +27,7 @@ class OllamaRequestNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "send_request"
-    CATEGORY = "😋fq393"
+    CATEGORY = "😋ZMG/fq393"
 
     def send_request(self, model, prompt, url):
         payload = {
