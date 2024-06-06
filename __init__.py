@@ -5,7 +5,8 @@ node_list = [
     "LoadVideoNode",
     "JsonParserNode",
     "OllamaRequestNode",
-    "OldPhotoColorizationNode"
+    "OldPhotoColorizationNode",
+    "waveform_2_audio",
 ]
 
 NODE_CLASS_MAPPINGS = {}
