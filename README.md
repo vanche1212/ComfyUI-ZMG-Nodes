@@ -9,3 +9,4 @@ wrote some relatively useful node plug-ins
  - api request
  - old photo color
  - ollama request
+ - ComfyUI-vlm audioLDM2 waveform converter
