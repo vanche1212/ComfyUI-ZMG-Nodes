@@ -1,6 +1,6 @@
 import time
 import random
-
+from utils.types import any
 
 class APIRequestNode:
 
@@ -16,7 +16,7 @@ class APIRequestNode:
                 "data_format": (["json", "form"], {"default": "json"}),
                 "request_params": ("STRING", {"multiline": True, "default": "{}"}),
                 "headers": ("STRING", {"multiline": True, "default": "{}"}),
-                "any": ("object", {"widget": False})
+                "anything": ("any", {"widget": False})
             },
         }
 
@@ -24,7 +24,7 @@ class APIRequestNode:
     FUNCTION = "make_request"
     CATEGORY = "😋ZMG/fq393"
 
-    def make_request(self, api_url, request_method, data_format, request_params, headers, any_input):
+    def make_request(self, api_url, request_method, data_format, request_params, headers, anything):
         import requests
         import json
 
