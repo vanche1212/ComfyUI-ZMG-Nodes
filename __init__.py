@@ -7,7 +7,8 @@ node_list = [
     "OllamaRequestNode",
     "OldPhotoColorizationNode",
     "waveform_2_audio",
-    "VcSaveImage"
+    "SaveImageUnifiedOutput",
+    "VideoCombineUnifiedOutput",
 ]
 
 NODE_CLASS_MAPPINGS = {}

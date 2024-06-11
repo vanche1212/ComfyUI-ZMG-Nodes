@@ -10,7 +10,7 @@ from PIL.PngImagePlugin import PngInfo
 from comfy.cli_args import args
 
 
-class VcSaveImage:
+class SaveImageUnifiedOutput:
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
         self.type = "output"
@@ -23,7 +23,8 @@ class VcSaveImage:
             {
                 "images": ("IMAGE",),
                 "filename_prefix": ("STRING", {"default": "ComfyUI"})
-            }
+            },
+            "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO", "unique_id": "UNIQUE_ID"},
         }
 
     RETURN_TYPES = ("IMAGE", "JSON")
