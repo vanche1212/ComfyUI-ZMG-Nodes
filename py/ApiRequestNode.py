@@ -1,4 +1,4 @@
-from utils.types import any
+from .utils.types import any
 
 class APIRequestNode:
 
