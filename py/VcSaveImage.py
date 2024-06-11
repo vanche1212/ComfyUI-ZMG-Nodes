@@ -1,11 +1,8 @@
 import os
 import numpy as np
-import json
-from PIL.PngImagePlugin import PngInfo
-from comfy.cli_args import args
 from .config.NodeCategory import NodeCategory
 
-class SaveImage:
+class VcSaveImage:
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
         self.type = "output"
@@ -21,8 +18,7 @@ class SaveImage:
             }
         }
 
-    RETURN_TYPES = ("IMAGE", "STRING")
-    RETURN_NAMES = ("IMAGE", "Results")
+    RETURN_TYPES = ("IMAGE", "JSON")
     FUNCTION = "save_images"
     CATEGORY = NodeCategory.CATEGORY
 
@@ -35,14 +31,6 @@ class SaveImage:
             i = 255. * image.cpu().numpy()
             img = Image.fromarray(np.clip(i, 0, 255).astype(np.uint8))
             metadata = None
-            if not args.disable_metadata:
-                metadata = PngInfo()
-                if prompt is not None:
-                    metadata.add_text("prompt", json.dumps(prompt))
-                if extra_pnginfo is not None:
-                    for x in extra_pnginfo:
-                        metadata.add_text(x, json.dumps(extra_pnginfo[x]))
-
             filename_with_batch_num = filename.replace(
                 "%batch_num%", str(batch_number))
             file = f"{filename_with_batch_num}_{counter:05}_.png"
@@ -59,9 +47,9 @@ class SaveImage:
 
 
 NODE_CLASS_MAPPINGS = {
-    "SaveImage": SaveImage
+    "VcSaveImage": VcSaveImage
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "SaveImage": "😋Save Image"
+    "VcSaveImage": "😋Save Image"
 }
