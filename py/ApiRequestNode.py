@@ -16,7 +16,7 @@ class APIRequestNode:
                 "data_format": (["json", "form"], {"default": "json"}),
                 "request_params": ("STRING", {"multiline": True, "default": "{}"}),
                 "headers": ("STRING", {"multiline": True, "default": "{}"}),
-                "any_input": ("ANY", {"widget": False})
+                "any_input": ("object", {"widget": False})
             },
         }
 
