@@ -1,16 +1,14 @@
 import importlib
-import folder_paths
-from .py.utils.server import server
+from .py.videohelpersuite.server import server
 
 node_list = [
     "ApiRequestNode",
-    "LoadVideoNode",
     "JsonParserNode",
     "OllamaRequestNode",
     "OldPhotoColorizationNode",
     "waveform_2_audio",
     "SaveImageUnifiedOutput",
-    "VideoCombineUnifiedOutput",
+    "VideoHelperUnifiedOutput",
 ]
 
 NODE_CLASS_MAPPINGS = {}
@@ -21,6 +19,6 @@ for module_name in node_list:
     NODE_CLASS_MAPPINGS = {**NODE_CLASS_MAPPINGS, **imported_module.NODE_CLASS_MAPPINGS}
     NODE_DISPLAY_NAME_MAPPINGS = {**NODE_DISPLAY_NAME_MAPPINGS, **imported_module.NODE_DISPLAY_NAME_MAPPINGS}
 
-WEB_DIRECTORY = "./web"
+WEB_DIRECTORY = "./py/web"
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'WEB_DIRECTORY']

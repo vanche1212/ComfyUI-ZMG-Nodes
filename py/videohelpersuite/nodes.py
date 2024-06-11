@@ -8,15 +8,18 @@ from typing import List
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 from pathlib import Path
-from .config.NodeCategory import NodeCategory
 
-import folder_paths
-from .utils.logger import logger
-from .utils.utils import ffmpeg_path, get_audio, hash_path, validate_path
+from ..utils import folder_paths
+from .logger import logger
+from .image_latent_nodes import *
+from .load_video_nodes import LoadVideoUpload, LoadVideoPath
+from .load_images_nodes import LoadImagesFromDirectoryUpload, LoadImagesFromDirectoryPath
+from .batched_nodes import VAEEncodeBatched, VAEDecodeBatched
+from .utils import ffmpeg_path, get_audio, hash_path, validate_path
 
 folder_paths.folder_names_and_paths["VHS_video_formats"] = (
     [
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), ".", "video_formats"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "video_formats"),
     ],
     [".json"]
 )
@@ -91,7 +94,6 @@ class VideoCombine:
         #Hide ffmpeg formats if ffmpeg isn't available
         if ffmpeg_path is not None:
             ffmpeg_formats = get_video_formats()
-            print(">>>>>>", ffmpeg_formats)
         else:
             ffmpeg_formats = []
         return {
@@ -118,9 +120,9 @@ class VideoCombine:
         }
 
     RETURN_TYPES = ("VHS_FILENAMES",)
-    RETURN_NAMES = ("result",)
+    RETURN_NAMES = ("Filenames",)
     OUTPUT_NODE = True
-    CATEGORY = NodeCategory.CATEGORY
+    CATEGORY = "Video Helper Suite 🎥🅥🅗🅢"
     FUNCTION = "combine_video"
 
     def combine_video(
@@ -365,7 +367,7 @@ class LoadAudio:
 
     RETURN_TYPES = ("VHS_AUDIO",)
     RETURN_NAMES = ("audio",)
-    CATEGORY = NodeCategory.CATEGORY
+    CATEGORY = "Video Helper Suite 🎥🅥🅗🅢"
     FUNCTION = "load_audio"
     def load_audio(self, audio_file, seek_seconds):
         if audio_file is None or validate_path(audio_file) != True:
@@ -382,10 +384,3 @@ class LoadAudio:
     @classmethod
     def VALIDATE_INPUTS(s, audio_file, **kwargs):
         return validate_path(audio_file, allow_none=True)
-
-NODE_CLASS_MAPPINGS = {
-    "😋Video Combine Unified Output": VideoCombine,
-}
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "😋Video Combine Unified Output": "😋Video Combine Unified Output",
-}
