@@ -1,5 +1,3 @@
-import time
-import random
 from utils.types import any
 
 class APIRequestNode:
@@ -16,7 +14,7 @@ class APIRequestNode:
                 "data_format": (["json", "form"], {"default": "json"}),
                 "request_params": ("STRING", {"multiline": True, "default": "{}"}),
                 "headers": ("STRING", {"multiline": True, "default": "{}"}),
-                "anything": ("any", {"widget": False})
+                "anything": (any, {"widget": False})
             },
         }
 
