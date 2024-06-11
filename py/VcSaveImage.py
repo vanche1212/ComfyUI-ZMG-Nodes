@@ -30,7 +30,7 @@ class VcSaveImage:
     FUNCTION = "save_images"
     CATEGORY = NodeCategory.CATEGORY
 
-    def save_images(self, images, filename_prefix):
+    def save_images(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
         filename_prefix += self.prefix_append
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
             filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0])
@@ -39,6 +39,14 @@ class VcSaveImage:
             i = 255. * image.cpu().numpy()
             img = Image.fromarray(np.clip(i, 0, 255).astype(np.uint8))
             metadata = None
+            if not args.disable_metadata:
+                metadata = PngInfo()
+                if prompt is not None:
+                    metadata.add_text("prompt", json.dumps(prompt))
+                if extra_pnginfo is not None:
+                    for x in extra_pnginfo:
+                        metadata.add_text(x, json.dumps(extra_pnginfo[x]))
+
             filename_with_batch_num = filename.replace(
                 "%batch_num%", str(batch_number))
             file = f"{filename_with_batch_num}_{counter:05}_.png"
