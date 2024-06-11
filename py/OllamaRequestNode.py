@@ -1,5 +1,6 @@
 import requests
 import json
+from .config.NodeCategory import NodeCategory
 
 class OllamaRequestNode:
 
@@ -27,7 +28,7 @@ class OllamaRequestNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "send_request"
-    CATEGORY = "😋ZMG/fq393"
+    CATEGORY = NodeCategory
 
     def send_request(self, model, prompt, url):
         payload = {

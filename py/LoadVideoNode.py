@@ -3,10 +3,10 @@ import numpy as np
 import torch
 from PIL import Image, ImageOps
 import cv2
-
 import folder_paths
 from comfy.utils import common_upscale
 from .utils.utils import calculate_file_hash, get_audio, lazy_eval, hash_path, validate_path
+from .config.NodeCategory import NodeCategory
 
 video_extensions = ['webm', 'mp4', 'mkv', 'gif']
 
@@ -124,7 +124,7 @@ class LoadVideoUpload:
             },
         }
 
-    CATEGORY = "😋ZMG/fq393"
+    CATEGORY = NodeCategory
 
     RETURN_TYPES = ("IMAGE", "INT", "VHS_AUDIO", "FLOAT")
     RETURN_NAMES = ("IMAGE", "frame_count", "audio", "fps")

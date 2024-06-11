@@ -1,4 +1,5 @@
 import json
+from .config.NodeCategory import NodeCategory
 
 class JsonParserNode:
 
@@ -23,7 +24,7 @@ class JsonParserNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "parse_input"
-    CATEGORY = "😋ZMG/fq393"
+    CATEGORY = NodeCategory
 
     def parse_input(self, input_type, input_string, json_path):
         if input_type == "json":

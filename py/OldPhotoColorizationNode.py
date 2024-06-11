@@ -7,6 +7,7 @@ import torch
 import os
 import time
 import folder_paths
+from .config.NodeCategory import NodeCategory
 
 
 class OldPhotoColorizationNode:
@@ -28,7 +29,7 @@ class OldPhotoColorizationNode:
 
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "colorize_images"
-    CATEGORY = "😋ZMG/fq393"
+    CATEGORY = NodeCategory
 
     def colorize_images(self, image):
         try:

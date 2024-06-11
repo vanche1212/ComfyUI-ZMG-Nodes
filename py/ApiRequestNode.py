@@ -1,4 +1,5 @@
 from .utils.types import any
+from .config.NodeCategory import NodeCategory
 
 
 class APIRequestNode:
@@ -21,7 +22,7 @@ class APIRequestNode:
 
     RETURN_TYPES = ("STRING", any)
     FUNCTION = "make_request"
-    CATEGORY = "😋ZMG/fq393"
+    CATEGORY = NodeCategory
 
     def make_request(self, api_url, request_method, data_format, request_params, headers, anything):
         import requests

@@ -3,7 +3,7 @@ import numpy as np
 import json
 from PIL.PngImagePlugin import PngInfo
 from comfy.cli_args import args
-
+from .config.NodeCategory import NodeCategory
 
 class SaveImage:
     def __init__(self):
@@ -22,11 +22,11 @@ class SaveImage:
         }
 
     RETURN_TYPES = ("IMAGE", "JSON")
+    RETURN_NAMES = ("IMAGES", "Results")
     FUNCTION = "save_images"
-    OUTPUT_NODE = False
-    CATEGORY = "😋ZMG/fq393"
+    CATEGORY = NodeCategory
 
-    def save_images(self, images, filename_prefix="ComfyUI"):
+    def save_images(self, images, filename_prefix):
         filename_prefix += self.prefix_append
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
             filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0])
