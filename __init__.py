@@ -1,4 +1,6 @@
 import importlib
+import folder_paths
+from .py.utils.server import server
 
 node_list = [
     "ApiRequestNode",
@@ -21,4 +23,4 @@ for module_name in node_list:
 
 WEB_DIRECTORY = "./web"
 
-__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
+__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'WEB_DIRECTORY']
