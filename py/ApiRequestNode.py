@@ -1,11 +1,12 @@
 import time
 import random
 
+
 class APIRequestNode:
 
     def __init__(self):
         pass
-    
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -15,7 +16,7 @@ class APIRequestNode:
                 "data_format": (["json", "form"], {"default": "json"}),
                 "request_params": ("STRING", {"multiline": True, "default": "{}"}),
                 "headers": ("STRING", {"multiline": True, "default": "{}"}),
-                "random_seed": ("FLOAT", {"default": random.random()}),
+                "any_input": ("ANY", {"widget": False})
             },
         }
 
@@ -23,10 +24,9 @@ class APIRequestNode:
     FUNCTION = "make_request"
     CATEGORY = "😋ZMG/fq393"
 
-    def make_request(self, api_url, request_method, data_format, request_params, headers, random_seed):
+    def make_request(self, api_url, request_method, data_format, request_params, headers, any_input):
         import requests
         import json
-
 
         # 解析请求参数和头信息
         try:
@@ -70,4 +70,3 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "APIRequestNode": "😋API Request Node"
 }
-
