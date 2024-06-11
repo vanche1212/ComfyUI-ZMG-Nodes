@@ -31,7 +31,7 @@ class LoadVideoPathUnifiedOutput:
 
     CATEGORY = NodeCategory.CATEGORY
 
-    RETURN_TYPES = LoadVideoPath.RETURN_TYPES
+    RETURN_TYPES = LoadVideoPath.RETURN_TYPES + ("FLOAT",)
     RETURN_NAMES = LoadVideoPath.RETURN_NAMES + ("fps",)
     FUNCTION = 'load_video'
 
