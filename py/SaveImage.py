@@ -21,6 +21,7 @@ class SaveImage:
             }
         }
 
+
     RETURN_TYPES = ("IMAGE", "JSON")
     RETURN_NAMES = ("IMAGES", "Results")
     FUNCTION = "save_images"
