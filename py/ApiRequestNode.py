@@ -64,9 +64,9 @@ class APIRequestNode:
 
 
 NODE_CLASS_MAPPINGS = {
-    "APIRequestNode": APIRequestNode
+    "😋API Request Node": APIRequestNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "APIRequestNode": "😋API Request Node"
+    "😋API Request Node": "😋API Request Node"
 }

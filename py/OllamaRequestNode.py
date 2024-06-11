@@ -50,10 +50,10 @@ class OllamaRequestNode:
             return ("Failed to decode the response as JSON.",)
 
 NODE_CLASS_MAPPINGS = {
-    "OllamaRequestNode": OllamaRequestNode
+    "😋Ollama Request Node": OllamaRequestNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "OllamaRequestNode": "😋Ollama Request Node"
+    "😋Ollama Request Node": "😋Ollama Request Node"
 }
 

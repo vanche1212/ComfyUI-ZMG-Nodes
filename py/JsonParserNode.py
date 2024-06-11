@@ -45,10 +45,10 @@ class JsonParserNode:
             return (input_string,)
 
 NODE_CLASS_MAPPINGS = {
-    "JsonParserNode": JsonParserNode
+    "😋JSON Parser Node": JsonParserNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "JsonParserNode": "😋JSON Parser Node"
+    "😋JSON Parser Node": "😋JSON Parser Node"
 }
 

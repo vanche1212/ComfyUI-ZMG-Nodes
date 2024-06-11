@@ -383,8 +383,8 @@ class LoadAudio:
         return validate_path(audio_file, allow_none=True)
 
 NODE_CLASS_MAPPINGS = {
-    "VideoCombineUnifiedOutput": VideoCombine,
+    "😋Video Combine Unified Output": VideoCombine,
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "VideoCombineUnifiedOutput": "😋Video Combine Unified Output",
+    "😋Video Combine Unified Output": "😋Video Combine Unified Output",
 }

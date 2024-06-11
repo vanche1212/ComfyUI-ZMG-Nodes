@@ -183,12 +183,12 @@ class LoadVideoPath:
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
     # "LoadVideoUpload": LoadVideoUpload,
-    "LoadVideoPath": LoadVideoPath
+    "😋Load Video (Path)": LoadVideoPath
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
     # "LoadVideoUpload": "😋Load Video (Upload)",
-    "LoadVideoPath": "😋Load Video (Path)"
+    "😋Load Video (Path)": "😋Load Video (Path)"
 }
 
