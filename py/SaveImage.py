@@ -18,8 +18,7 @@ class SaveImage:
             {
                 "images": ("IMAGE",),
                 "filename_prefix": ("STRING", {"default": "ComfyUI"})
-            },
-            "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO", "unique_id": "UNIQUE_ID"},
+            }
         }
 
     RETURN_TYPES = ("IMAGE",)
@@ -27,7 +26,7 @@ class SaveImage:
     OUTPUT_NODE = False
     CATEGORY = "image"
 
-    def save_images(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None, unique_id=None):
+    def save_images(self, images, filename_prefix="ComfyUI"):
         filename_prefix += self.prefix_append
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
             filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0])
