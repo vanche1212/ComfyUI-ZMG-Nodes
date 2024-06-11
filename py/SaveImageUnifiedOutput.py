@@ -56,9 +56,9 @@ class SaveImageUnifiedOutput:
 
 
 NODE_CLASS_MAPPINGS = {
-    "VcSaveImage": VcSaveImage
+    "VcSaveImage": SaveImageUnifiedOutput
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "VcSaveImage": "😋Save Image"
+    "VcSaveImage": "😋Save Image Unified Output"
 }
