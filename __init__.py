@@ -1,5 +1,4 @@
 import importlib
-from .py.videohelpersuite.server import server
 
 node_list = [
     "ApiRequestNode",
