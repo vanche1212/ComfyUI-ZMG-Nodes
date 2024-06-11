@@ -1,5 +1,6 @@
 from .utils.types import any
 
+
 class APIRequestNode:
 
     def __init__(self):
@@ -18,7 +19,7 @@ class APIRequestNode:
             },
         }
 
-    RETURN_TYPES = ("STRING",)
+    RETURN_TYPES = ("STRING", any)
     FUNCTION = "make_request"
     CATEGORY = "😋ZMG/fq393"
 
@@ -52,7 +53,7 @@ class APIRequestNode:
 
             # 返回响应内容
             if response.status_code == 200:
-                return (response.text,)
+                return (response.text, anything)
             else:
                 return (f"Error: {response.status_code} - {response.text}",)
         except requests.exceptions.Timeout:
