@@ -29,7 +29,7 @@ class OldPhotoColorizationNode:
 
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "colorize_images"
-    CATEGORY = NodeCategory
+    CATEGORY = NodeCategory.CATEGORY
 
     def colorize_images(self, image):
         try:

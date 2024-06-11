@@ -22,7 +22,7 @@ class APIRequestNode:
 
     RETURN_TYPES = ("STRING", any)
     FUNCTION = "make_request"
-    CATEGORY = NodeCategory
+    CATEGORY = NodeCategory.CATEGORY
 
     def make_request(self, api_url, request_method, data_format, request_params, headers, anything):
         import requests

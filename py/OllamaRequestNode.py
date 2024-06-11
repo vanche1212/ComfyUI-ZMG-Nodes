@@ -28,7 +28,7 @@ class OllamaRequestNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "send_request"
-    CATEGORY = NodeCategory
+    CATEGORY = NodeCategory.CATEGORY
 
     def send_request(self, model, prompt, url):
         payload = {

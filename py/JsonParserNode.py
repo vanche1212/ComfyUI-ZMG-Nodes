@@ -24,7 +24,7 @@ class JsonParserNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "parse_input"
-    CATEGORY = NodeCategory
+    CATEGORY = NodeCategory.CATEGORY
 
     def parse_input(self, input_type, input_string, json_path):
         if input_type == "json":

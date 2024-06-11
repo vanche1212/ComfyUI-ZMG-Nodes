@@ -124,7 +124,7 @@ class LoadVideoUpload:
             },
         }
 
-    CATEGORY = NodeCategory
+    CATEGORY = NodeCategory.CATEGORY
 
     RETURN_TYPES = ("IMAGE", "INT", "VHS_AUDIO", "FLOAT")
     RETURN_NAMES = ("IMAGE", "frame_count", "audio", "fps")

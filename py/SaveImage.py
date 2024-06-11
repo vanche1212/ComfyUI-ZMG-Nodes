@@ -21,11 +21,10 @@ class SaveImage:
             }
         }
 
-
     RETURN_TYPES = ("IMAGE", "JSON")
     RETURN_NAMES = ("IMAGES", "Results")
     FUNCTION = "save_images"
-    CATEGORY = NodeCategory
+    CATEGORY = NodeCategory.CATEGORY
 
     def save_images(self, images, filename_prefix):
         filename_prefix += self.prefix_append
