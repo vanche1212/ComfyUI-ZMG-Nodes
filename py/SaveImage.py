@@ -21,8 +21,8 @@ class SaveImage:
             }
         }
 
-    RETURN_TYPES = ("IMAGE", "JSON")
-    RETURN_NAMES = ("IMAGES", "Results")
+    RETURN_TYPES = ("IMAGE", "STRING")
+    RETURN_NAMES = ("IMAGE", "Results")
     FUNCTION = "save_images"
     CATEGORY = NodeCategory.CATEGORY
 
