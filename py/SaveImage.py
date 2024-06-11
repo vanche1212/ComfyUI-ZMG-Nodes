@@ -21,10 +21,10 @@ class SaveImage:
             }
         }
 
-    RETURN_TYPES = ("IMAGE",)
+    RETURN_TYPES = ("IMAGE", "JSON")
     FUNCTION = "save_images"
     OUTPUT_NODE = False
-    CATEGORY = "image"
+    CATEGORY = "😋ZMG/fq393"
 
     def save_images(self, images, filename_prefix="ComfyUI"):
         filename_prefix += self.prefix_append
@@ -55,7 +55,7 @@ class SaveImage:
             })
             counter += 1
 
-        return (images,)
+        return (images, results)
 
 
 NODE_CLASS_MAPPINGS = {
@@ -63,5 +63,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "SaveImageLam": "😋保存图像"
+    "SaveImageLam": "😋Save Image"
 }
