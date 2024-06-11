@@ -11,7 +11,7 @@ from pathlib import Path
 from .config.NodeCategory import NodeCategory
 
 import folder_paths
-from .logger import logger
+from .utils.logger import logger
 from .utils import ffmpeg_path, get_audio, hash_path, validate_path
 
 folder_paths.folder_names_and_paths["VHS_video_formats"] = (
