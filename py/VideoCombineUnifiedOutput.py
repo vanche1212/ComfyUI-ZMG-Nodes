@@ -91,6 +91,7 @@ class VideoCombine:
         #Hide ffmpeg formats if ffmpeg isn't available
         if ffmpeg_path is not None:
             ffmpeg_formats = get_video_formats()
+            print('???????', ffmpeg_path)
         else:
             ffmpeg_formats = []
         return {
@@ -137,6 +138,7 @@ class VideoCombine:
         unique_id=None,
         manual_format_widgets=None
     ):
+        print(">>>>>>", ffmpeg_path)
         # get output information
         output_dir = (
             folder_paths.get_output_directory()
