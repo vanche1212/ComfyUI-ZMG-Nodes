@@ -1,6 +1,6 @@
-import { app } from '../../../scripts/app.js'
-import { api } from '../../../scripts/api.js'
-import { applyTextReplacements } from "../../../scripts/utils.js";
+import { app } from '../../../../scripts/app.js'
+import { api } from '../../../../scripts/api.js'
+import { applyTextReplacements } from "../../../../scripts/utils.js";
 
 
 function chainCallback(object, property, callback) {
