@@ -45,11 +45,11 @@ function injectHidden(widget) {
 const convDict = {
     VHS_LoadImages : ["directory", null, "image_load_cap", "skip_first_images", "select_every_nth"],
     VHS_LoadImagesPath : ["directory", "image_load_cap", "skip_first_images", "select_every_nth"],
-    VHS_VideoCombine : ["frame_rate", "loop_count", "filename_prefix", "format", "pingpong", "save_image"],
+    VHS_Video_Combine_Unified_Output : ["frame_rate", "loop_count", "filename_prefix", "format", "pingpong", "save_image"],
     VHS_LoadVideo : ["video", "force_rate", "force_size", "frame_load_cap", "skip_first_frames", "select_every_nth"],
     VHS_LoadVideoPath : ["video", "force_rate", "force_size", "frame_load_cap", "skip_first_frames", "select_every_nth"]
 };
-const renameDict  = {VHS_VideoCombine : {save_output : "save_image"}}
+const renameDict  = {VHS_Video_Combine_Unified_Output : {save_output : "save_image"}}
 function useKVState(nodeType) {
     chainCallback(nodeType.prototype, "onNodeCreated", function () {
         chainCallback(this, "onConfigure", function(info) {
