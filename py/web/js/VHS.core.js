@@ -971,7 +971,7 @@ app.registerExtension({
                 });
             });
             addLoadVideoCommon(nodeType, nodeData);
-        } else if (nodeData?.name == "VHS_VideoCombine") {
+        } else if (nodeData?.name == "😋Video Combine Unified Output") {
             addDateFormatting(nodeType, "filename_prefix");
             chainCallback(nodeType.prototype, "onExecuted", function(message) {
                 if (message?.gifs) {
