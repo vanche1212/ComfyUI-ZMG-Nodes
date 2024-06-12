@@ -48,10 +48,10 @@ class LoadVideoPathUnifiedOutput:
 
 
 NODE_CLASS_MAPPINGS = {
-    "😋Video Combine Unified Output": VideoCombineUnifiedOutput,
-    "VHS_LoadVideoPath": LoadVideoPathUnifiedOutput
+    "VHS_Video_Combine_Unified_Output": VideoCombineUnifiedOutput,
+    "VHS_Load_Video_Path_Unified_Output": LoadVideoPathUnifiedOutput
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "😋Video Combine Unified Output": "😋Video Combine Unified Output",
-    "VHS_LoadVideoPath": "😋Load Video Path Unified Output"
+    "VHS_Video_Combine_Unified_Output": "😋Video Combine Unified Output",
+    "VHS_Load_Video_Path_Unified_Output": "😋Load Video Path Unified Output"
 }
