@@ -4,7 +4,7 @@
 wrote some relatively useful node plug-ins
 
 ### NODES
- - upload video
+ - video helper (Reference ComfyUI-VideoHelperSuite)
  - json parser
  - api request
  - old photo color
