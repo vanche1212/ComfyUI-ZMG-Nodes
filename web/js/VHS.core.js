@@ -875,12 +875,12 @@ function searchBox(event, [x,y], node) {
     return dialog;
 }
 
-// app.ui.settings.addSetting({
-//     id: "VHS.AdvancedPreviews",
-//     name: "🎥🅥🅗🅢 Advanced Previews",
-//     type: "boolean",
-//     defaultValue: false,
-// });
+app.ui.settings.addSetting({
+    id: "VHS.AdvancedPreviews",
+    name: "🎥🅥🅗🅢 Advanced Previews",
+    type: "boolean",
+    defaultValue: false,
+});
 
 app.registerExtension({
     name: "VideoHelperSuite.Core",
